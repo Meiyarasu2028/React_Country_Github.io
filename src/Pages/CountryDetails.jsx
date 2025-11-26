@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 const CountryDetails = () => {
 
     const { name } = useParams()
+    console.log(name)
     const [CountryData, setCountryData] = useState({})
     const [isLoading, setLoading] = useState(true)
 
@@ -20,13 +21,13 @@ const CountryDetails = () => {
                 setLoading(false)
             })
 
-    }, [name])
+    }, [])
 
     if (isLoading) {
         return <Loading />
     }
 
-    return ( 
+    return (
         <div className='flex flex-col items-center justify-center h-screen'>
             <h2 className='text-3xl font-bold p-6'>{CountryData.name.common}</h2>
             <div className='rounded-md border-2 p-10 w-fit'>
@@ -34,6 +35,11 @@ const CountryDetails = () => {
                 <p><b>Capital:</b>{CountryData.capital?.[0]}</p>
                 <p><b>Region:</b>{CountryData.region}</p>
                 <p><b>population:</b>{CountryData.population?.toLocaleString()}</p>
+                <p className='mt-2'>
+                    <a className='text-blue-500 underline-offset-4 hover:shadow-xl hover:underline' href={CountryData.maps?.googleMaps} target='_blank'>
+                        View on Google Map
+                    </a>
+                </p>
             </div>
         </div>
     )

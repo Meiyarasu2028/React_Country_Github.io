@@ -29,7 +29,7 @@ const CountryList = () => {
             <div className='grid grid-cols-4 gap-6'>
                 {
                     CountryDetails.map((country, i) => {
-                        return <Link to={`/country/${country.name.common}`}
+                        return <Link  key={i}  to={`/country/${country.name.common}`}
                             className='p-4 border rounded-xl shadow-md flex flex-col items-center gap-4'>
                             <img className='h-32 w-full object-contain' src={country.flags.svg} alt={country.name.common} />
                             <p className='font-medium'>{country.name.common}</p>
