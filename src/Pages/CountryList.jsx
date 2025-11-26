@@ -26,7 +26,7 @@ const CountryList = () => {
     return (
         <div>
             <h1 className='text-3xl font-bold p-6 mb-6'>Countries</h1>
-            <div className='grid grid-cols-4 gap-6'>
+            <div className='grid grid-cols-2 md:grid-cols-4 gap-6 p-4'>
                 {
                     CountryDetails.map((country, i) => {
                         return <Link  key={i}  to={`/country/${country.name.common}`}
